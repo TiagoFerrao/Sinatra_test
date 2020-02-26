@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'rubygems'
+require 'sinatra'
 require 'sinatra'
 require 'pry-byebug'
 require 'better_errors'
@@ -12,10 +14,10 @@ cookbook   = Cookbook.new(csv_file)
 
 # set :bind, '0.0.0.0' -> if you want to demo with ngrok for example
 
-configure :development do
-  use BetterErrors::Middleware
-  BetterErrors.application_root = File.expand_path(__dir__)
-end
+# configure :development do
+#   use BetterErrors::Middleware
+#   BetterErrors.application_root = File.expand_path(__dir__)
+# end
 
 get '/' do
   @recipes = cookbook.all
